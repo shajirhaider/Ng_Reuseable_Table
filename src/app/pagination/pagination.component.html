@@ -1,0 +1,17 @@
+<div class="row mt-3">
+    <div class="col-3" style="display: flex;">  
+      <span><b>Row Per Page</b></span>
+      <select class="form-control w-25 ml-2" [(ngModel)]="numberofItem" (change)="pagination(0, numberofItem)">
+        <option [value]="item" *ngFor="let item of recordPerPageList">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-9">
+      <nav aria-label="Page navigation example" class="float-right">
+        <ul class="pagination">
+          <li class="page-item"  [class.active]="item === currentPage"  *ngFor=" let item of pageArr">
+            <a class="page-link" (click)="pagination(item, numberofItem)">{{item+1}}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+	</div>

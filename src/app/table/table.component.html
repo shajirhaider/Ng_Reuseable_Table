@@ -1,0 +1,30 @@
+
+
+<!-- <table mat-table [dataSource]="newData">
+    <ng-container [matColumnDef]="column" *ngFor="let head of header">
+      <th mat-header-cell *matHeaderCellDef>{{head.text}}</th>
+      <td mat-cell *matCellDef="let element">{{ element[head] }}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table> -->
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <th *ngFor="let head of header">
+                {{head.text}}
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let d of newData">
+                <td *ngFor = "let head of header">
+                    <span>{{d[head.value]}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<app-pagination [paginatedData]=data (filteredData)="newData = $event"></app-pagination>
+
